@@ -70,6 +70,9 @@ class OutlineController extends Controller
 
                 $this->send("update", "<END_STREAMING_SSE>");
                 logger($result_text);
+
+                $outline->content = $result_text;
+                $outline->save();
             },
             200,
             [
